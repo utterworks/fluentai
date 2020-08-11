@@ -9,6 +9,11 @@ echo "... setting up"
 mkdir packages
 
 cd packages
+echo "1. Downloading Fluent Platform Networking"
+aws s3 cp s3://$DEPLOYMENT_BUCKET/releases/fluent_platform_networking/fluent_platform_networking-latest.zip .
+unzip fluent_platform_networking-latest.zip -d .
+mv fluent_platform_networking 1_fluent_platform_networking
+rm fluent_platform_networking-latest.zip
 
 echo "2. Downloading Fluent Load balancer"
 aws s3 cp s3://$DEPLOYMENT_BUCKET/releases/fluent_load_balancer/fluent_load_balancer-latest.zip .
